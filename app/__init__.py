@@ -14,7 +14,7 @@ def create_app():
     # import models 
 
     # import & register blueprints
-    from app.dasboard.views import dash_bp
+    from app.dash.views import dash_bp
 
     app.register_blueprint(dash_bp, url_prefix="/")
 

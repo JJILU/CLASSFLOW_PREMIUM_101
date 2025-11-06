@@ -18,7 +18,7 @@
     <div class="top">
       <!-- logo  -->
       <div class="logo">
-        <img src="{{ url_for('dashboard.static', filename='assets/dashboard_images/logo.png') }}" alt="college logo">
+        <img src="{{ url_for('static', filename='assets/dashboard_images/logo.png') }}" alt="college logo">
         <h2>CLASS<span class="danger">FLOW</span></h2>
       </div>
       <!-- close -->
@@ -32,13 +32,14 @@
     <!-- sidebar -->
     <div class="sidebar">
       <!-- dasbaord menu item -->
-      <a href="#">
+      <a href="{% if role == 'admin' %}{{ url_for('dash.admin_home') }}{% elif role == 'teacher' %}{{ url_for('dash.teacher_home') }}{% else %}{{ url_for('dash.student_home') }}{% endif %}">
         <span class="material-symbols-sharp">
           grid_view
         </span>
         <h3>Dashboard</h3>
       </a>
 
+     
        <!-- lecturer menu item -->
        <a href="#">
         <span class="material-symbols-sharp">
@@ -99,13 +100,16 @@
       </a>
     </div>
   </aside>
- </div> 
 
 
- <!-- CONTENT AREA FOR EACH PAGE -->
-  <main>
+   <!-- CONTENT AREA FOR EACH PAGE -->
+   <main>
     {% block content %}
     {% endblock content %}
   </main>
+ </div> 
+
+
+
 </body>
 </html>

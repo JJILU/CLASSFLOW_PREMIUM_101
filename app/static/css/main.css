@@ -228,3 +228,18 @@ aside .sidebar a:hover {
 aside .sidebar a:hover span {
   margin-left: 1rem;
 }
+
+
+/*--------- REMOVE AFTER------- */
+.container {
+  display: flex;
+}
+
+aside {
+  width: 250px;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
