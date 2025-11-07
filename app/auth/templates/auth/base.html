@@ -4,13 +4,45 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLASSROOM MANAGEMENT SYSTEM</title>
+  <title>{% block title %}CLASSROOM MANAGEMENT SYSTEM | Login & Registration {% endblock title %}</title>
+  <!-- boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- images -->
   <link rel="icon" href="{{ url_for('static', filename='assets/favicon/learning.png') }}" type="image/png">
-  <link rel="stylesheet" href="{{ url_for('auth.static', filename='css/auth.css') }}">
+  <!-- css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
 </head>
 <body>
+<div class="wrapper">
+  <nav class="nav">
+    <!-- logo  -->
+    <div class="nav-logo">
+      <img src="{{ url_for('static', filename='assets/dashboard_images/logo.png') }}" alt="college logo">
+    </div>
+    <!-- menu -->
+    <div class="nav-menu">
+      <ul>
+        <li><a href="#" class="link active">Home</a></li>
+        <li><a href="#" class="link">Services</a></li>
+        <li><a href="#" class="link">Contant Us</a></li>
+        <li><a href="#" class="link">About</a></li>
+      </ul>
+    </div>
+    <!-- buttons -->
+    <div class="nav-button">
+      <button class="btn" id="loginBtn">Sign In</button>
+      <button class="btn" id="registerBtn">Sign Up</button>
+    </div>
+    <!-- menu icon -->
+    <div class="nav-menu-btn">
+      <i class="bx bx-menu"></i>
+    </div>
+  </nav>
+</div>  
   {% block content %}
     
   {% endblock content %}
+
+  <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
 </body>
 </html>

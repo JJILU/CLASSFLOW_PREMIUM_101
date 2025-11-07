@@ -1,7 +1,5 @@
-from flask import Blueprint,render_template
-
-
-dash_bp = Blueprint("dash",__name__,template_folder="templates",static_folder="static")
+from . import dash_bp
+from flask import render_template
 
 
 # ------------------- TEACHER DASHBAORD ROUTES ------------------
