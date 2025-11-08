@@ -169,6 +169,7 @@ header {
   position: relative;
   top: -35px;
   left: 17px;
+  font-size: 22px;
   color: #fff;
 }
 
@@ -213,3 +214,43 @@ header {
   text-decoration: underline;
 } 
 
+/* Style the select itself */
+select.input-field {
+  appearance: none;            /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  height: 50px;
+  width: 100%;
+  padding: 0 10px 0 45px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+/* Add hover/focus effect */
+select.input-field:hover,
+select.input-field:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Style the dropdown list */
+select.input-field option {
+  background-color: #222;     /* Dark dropdown background */
+  color: #fff;                /* White text */
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+}
+
+/* Optional: Add custom dropdown arrow */
+select.input-field {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+}
