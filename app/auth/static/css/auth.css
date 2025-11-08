@@ -106,11 +106,23 @@ body {
   justify-content: center;
   width: 512px;
   height: 420px;
+  /* border: 1px solid #fff; */
   overflow: hidden;
   z-index: 2;
 }
 
+.login-container {
+  position: absolute;
+  left: 4px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  transition: .5s ease-in-out;
+}
+
 .register-container {
+  position: absolute;
+  right: -520px;
   width: 500px;
   display: flex;
   flex-direction: column;
