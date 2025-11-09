@@ -71,11 +71,11 @@ def register():
 
         # check if ID is in school records
         valid_user=None
-        if role == "Teacher":
+        if role == "teacher":
            valid_user =  TeacherSchoolRecord.get_teacher_by_card_id(school_id)
            if not valid_user:
             return jsonify({"error":f"No teacher with school id {school_id} found in school records"}),400
-        elif role == "Admin":
+        elif role == "admin":
            valid_user =  StudentSchoolRecord.get_student_by_card_id(school_id)
            if not valid_user:
             return jsonify({"error":f"No admin with school id {school_id} found in school records"}),400
@@ -88,11 +88,11 @@ def register():
 
 
         # check if data exists in Teacher,Admin,Student
-        if  role == "Teacher" and Teacher.query.filter_by(teacher_card_id=school_id).first():
+        if  role == "teacher" and Teacher.query.filter_by(teacher_card_id=school_id).first():
             return jsonify({"error": "Teacher account with this id already exists"}),400
-        if  role == "Admin" and Admin.query.filter_by(admin_card_id=school_id).first():
+        if  role == "admin" and Admin.query.filter_by(admin_card_id=school_id).first():
             return jsonify({"error": "Admin account with this id already exists"}),400
-        if  role == "Student" and Student.query.filter_by(student_card_id=school_id).first():
+        if  role == "student" and Student.query.filter_by(student_card_id=school_id).first():
             return jsonify({"error": "Student account with this id already exists"}),400
         
 
@@ -101,9 +101,9 @@ def register():
 
         # if record doesn't already exist create a record
         r = None
-        if role == "Teacher":
+        if role == "teacher":
             r = Teacher(teacher_card_id=school_id,password=password,role=role)
-        elif role == "Admin":
+        elif role == "admin":
             r = Admin(admin_card_id=school_id,password=password,role=role) 
         else:
             r = Student(student_card_id=school_id,password=password,role=role)    
@@ -111,11 +111,11 @@ def register():
         try:    
             db.session.add(r)    
             db.session.commit()  
-            return jsonify({"success":"registered successfully,"}),201  
+            return jsonify({"success":"registered successfully","redirect_url":url_for('auth.login')}),201  
         except Exception as e:
             db.session.rollback()
             print(f"Failed to register user: {str(e)}")
-            return jsonify({"success":"failed to register user"}),500
+            return jsonify({"error":"failed to register user","redirect_url":url_for('auth.register')}),500
         finally:
             db.session.close()
 

@@ -45,8 +45,8 @@ with flask_app.app_context():
     db.create_all()
     
     try:
-        create_teacher_school_records()
-        # create_student_school_records()
+        # create_teacher_school_records()
+        create_student_school_records()
         print(f"Teachers & Students created successfully")
     except Exception as e:
         print(f"Failed to create teachers & students error occured {str(e)}")

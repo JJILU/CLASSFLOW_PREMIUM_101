@@ -11,7 +11,7 @@
 
 /* set image for entire page */
 body {
-  background: url('../assets/images/classroom_1.jpg');
+  background: url('../assets/images/classroom_3.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -70,6 +70,7 @@ body {
   width: 130px;
   height: 40px;
   font-weight: 500;
+  font-size: 16px;
   background: rgba(255,255, 255, 0.4);
   border: none;
   border-radius: 30px;
@@ -145,10 +146,15 @@ body {
 
 header {
   color: #fff;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   padding: 10px 0 30px 0;
 } 
+
+.redirectMsg {
+  font-size: 25px;
+  font-weight: 500;
+}
 
 /*
 .two-forms {
@@ -157,9 +163,11 @@ header {
 }
 */
 .input-field {
-  font-size: 15px;
+  font-size: 18px;
   background: rgba(255,255, 255, 0.2);
   color: #fff;
+  /* color: black; */
+  font-weight: 500;
   height: 50px;
   width: 100%;
   padding: 0 10px 0 45px;
@@ -167,6 +175,10 @@ header {
   border-radius: 30px;
   outline: none;
   transition: .2s ease;
+}
+
+.input-field::placeholder {
+  color: rgba(255,255, 255, 0.9);
 }
 
 .input-field:hover, .input-field:focus {
@@ -182,13 +194,16 @@ header {
   top: -35px;
   left: 17px;
   font-size: 22px;
-  color: #fff;
+  /* color: #fff; */
+  color: rgba(255,255, 255, 0.7);
 }
 
 .submit {
   font-size: 15px;
   font-weight: 500;
   color: black;
+  font-size: 18px;
+  font-weight: 500;
   height: 45px;
   width: 100%;
   border: none;
@@ -217,6 +232,16 @@ header {
   gap: 5px;
 }
 
+.two-col .one {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.two-col .two {
+  font-size: 17px;
+  font-weight: 500;
+}
+
 .two label a {
   text-decoration: none;
   color: #fff;
@@ -238,7 +263,8 @@ select.input-field {
   height: 50px;
   width: 100%;
   padding: 0 10px 0 45px;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 500;
   outline: none;
   transition: 0.2s ease;
   cursor: pointer;
