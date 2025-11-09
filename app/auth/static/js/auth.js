@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginMsg = document.createElement('p');
   loginMsg.style.textAlign = 'center';
   loginMsg.style.color = '#fff';
-  loginMsg.style.height = '20px';
-  loginMsg.style.margin = '20px';
+  loginMsg.style.height = '5px';
+  // loginMsg.style.padding = '2px';
   loginForm.append(loginMsg); // show message above inputs
 
   loginForm.addEventListener('submit', async (e) => {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const response = await fetch('/login', {  // replace with your Flask route
+      const response = await fetch('/', {  // replace with your Flask route
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const registerMsg = document.createElement('p');
   registerMsg.style.textAlign = 'center';
   registerMsg.style.color = '#fff';
-  registerMsg.style.height = '20px';
-  loginMsg.style.margin = '20px';
+  registerMsg.style.height = '5px';
+  registerMsg.style.padding = '2px';
   registerForm.append(registerMsg);
 
   registerForm.addEventListener('submit', async (e) => {
