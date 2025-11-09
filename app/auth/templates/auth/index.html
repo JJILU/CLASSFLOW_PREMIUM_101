@@ -12,20 +12,24 @@
       <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
       <header>Login</header>
     </div>
-    <div class="two-forms">
+
+  <!-- message here -->  
+  <!-- <p id="loginMsg" style="text-align:center;color:#fff;height:20px;"></p>  -->
+
+    <form  id="loginForm" class="two-forms">
       <!-- school ID input -->
       <div class="input-box">
-        <input type="text"  name="school_id" class="input-field" placeholder="School ID">
+        <input type="text"  id="loginSchoolId" class="input-field" placeholder="School ID">
         <i class='bx bx-id-card'></i>
       </div>
       <!-- password input -->
       <div class="input-box">
-        <input type="password" name="password" class="input-field" placeholder="Password">
+        <input type="password" id="loginPassword" class="input-field" placeholder="Password">
         <i class='bx bx-lock-alt'></i>
       </div>
       <!-- user role input -->
       <div class="input-box">
-        <select class="input-field" name="role" required>
+        <select class="input-field" id="loginRole" required>
           <option value="" disabled selected>Select Role</option>
           <option value="teacher">Teacher</option>
           <option value="admin">Admin</option>
@@ -35,22 +39,22 @@
       </div>
       <!-- register button -->
       <div class="input-box">
-        <input type="submit"  class="submit" value="Sign In">
+        <input type="submit"  class="submit" value="Sign In" id="loginButton">
       </div>
       <div class="two-col">
         <!-- Remember Me -->
         <div class="one">
-          <input type="checkbox" name="login-check" id="login-check">
+          <input type="checkbox" name="login-check" id="loginCheck">
           <label for="login-check"> Remember Me</label>
         </div>
         <!--  Terms & Conditions -->
         <div class="two">
           <label>
-            <a href="#">|Forgot password?</a> 
+            <a href="#">Forgot password?</a> 
           </label>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 
   <!-------------------------------- registration form ----------------------------------->
@@ -59,20 +63,24 @@
       <span>Have an account? <a href="#" onclick="login()">Login</a></span>
       <header>Sign Up</header>
     </div>
-    <div class="two-forms">
+
+    <!-- message here -->
+    <!-- <p id="registerMsg" style="text-align:center;color:#fff;height:20px;"></p>  -->
+
+    <form id="registerForm" class="two-forms">
       <!-- school ID input -->
       <div class="input-box">
-        <input type="text"  name="school_id" class="input-field" placeholder="School ID">
+        <input type="text"  id="registerSchoolId" class="input-field" placeholder="School ID">
         <i class='bx bx-id-card'></i>
       </div>
       <!-- password input -->
       <div class="input-box">
-        <input type="password" name="password" class="input-field" placeholder="Password">
+        <input type="password" id="registerPassword" class="input-field" placeholder="Password">
         <i class='bx bx-lock-alt'></i>
       </div>
       <!-- user role input -->
       <div class="input-box">
-        <select class="input-field" name="role" required>
+        <select class="input-field" id="registerRole" required>
           <option value="" disabled selected>Select Role</option>
           <option value="teacher">Teacher</option>
           <option value="admin">Admin</option>
@@ -87,7 +95,7 @@
       <div class="two-col">
         <!-- Remember Me -->
         <div class="one">
-          <input type="checkbox" name="register-check" id="register-check">
+          <input type="checkbox" name="register-check" id="registerCheck">
           <label for="register-check"> Remember Me</label>
         </div>
         <!--  Terms & Conditions -->
@@ -98,7 +106,7 @@
           </label>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
   
