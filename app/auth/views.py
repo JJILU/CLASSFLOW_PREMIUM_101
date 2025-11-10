@@ -33,6 +33,7 @@ def register():
         # check if correct role is selected
         valid_roles = {"teacher","admin","student"}
         if data.get("role") not in valid_roles:
+            print("Invalid role selected")
             return jsonify({"error":"Invalid role selected"}),400
 
         # check if all id and password are submitted
@@ -58,6 +59,7 @@ def register():
                        
         # if true contains list of missing fields error messages 
         if missing_fields:
+            print(missing_fields)
             return jsonify({"error":missing_fields}),400    
         
 
@@ -72,14 +74,17 @@ def register():
         if role == "teacher":
            valid_user =  TeacherSchoolRecord.get_teacher_by_card_id(school_id)
            if not valid_user:
+            print(f"No teacher with school id {school_id} found in school records")
             return jsonify({"error":f"No teacher with school id {school_id} found in school records"}),400
         elif role == "admin":
+           print(f"No admin with school id {school_id} found in school records")
            valid_user =  StudentSchoolRecord.get_student_by_card_id(school_id)
            if not valid_user:
             return jsonify({"error":f"No admin with school id {school_id} found in school records"}),400
         else:
            valid_user =  StudentSchoolRecord.get_student_by_card_id(school_id)
            if not valid_user:
+            print(f"No student with school id {school_id} found in school records")
             return jsonify({"error":f"No student with school id {school_id} found in school records"}),400
 
         
@@ -124,7 +129,7 @@ def register():
     
 
 
-@auth_bp.route("/", methods=["GET", "POST"])
+@auth_bp.route("/", methods=["GET", "POST"]) # type: ignore
 def login():
     if request.method == "GET":
         return render_template("auth/index.html")
@@ -199,19 +204,23 @@ def login():
         if  role == "admin" and Admin.query.filter_by(admin_card_id=school_id).first():
             login_user(Admin.query.filter_by(admin_card_id=school_id).first())
             return jsonify({"success":"logged in successfully", "redirect_url":url_for("dash.teacher_home")}),200
-        if  role == "student" and Student.query.filter_by(student_card_id=school_id).first():
+        if  role == "student" and Student.query.filter_by(student_card_id=school_id).first(): # type: ignore
             login_user(Student.query.filter_by(student_card_id=school_id).first())
             return jsonify({"success":"logged in successfully", "redirect_url":url_for("dash.teacher_home")}),200 
 
 
 
-@auth_bp.route('/logout')  
+@auth_bp.route('/logout')   # type: ignore
 def logout():
     try:
         logout_user()
-        return jsonify({"success":"logged out successfully", "redirect_url":url_for("login")}),200 
-    except:
-        return jsonify({"error":"logged out failed", "redirect_url":url_for("dash.teacher_homen")}),200 
+        # return jsonify({"success":"logged out successfully", "redirect_url":url_for("auth.login")}),200 
+        flash('logged out successfully','success')
+        return redirect(url_for("auth.login"))
+    except Exception as e:
+        # return jsonify({"error":f"logged out failed {str(e)}", "redirect_url":url_for("dash.teacher_home")}),500 
+        flash(f'logged out failed {str(e)}','success')
+        return redirect(url_for("dash.teacher_home"))
 
     
         

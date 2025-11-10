@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginMsg = document.createElement('p');
   loginMsg.style.textAlign = 'center';
   loginMsg.style.color = '#fff';
-  loginMsg.style.height = '5px';
+  // loginMsg.style.height = '20px';
   // loginMsg.style.padding = '2px';
-  loginForm.append(loginMsg); // show message above inputs
+  loginForm.prepend(loginMsg); // show message above inputs
 
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -90,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const registerMsg = document.createElement('p');
   registerMsg.style.textAlign = 'center';
   registerMsg.style.color = '#fff';
-  registerMsg.style.height = '5px';
-  registerMsg.style.padding = '2px';
-  registerForm.append(registerMsg);
+  // registerMsg.style.height = '20px';
+  // registerMsg.style.padding = '2px';
+  registerForm.prepend(registerMsg);
 
   registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -114,12 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = await response.json();
 
       if (result.success) {
+        console.log(result.success)
         registerMsg.textContent = result.success;
         registerMsg.style.color = 'lightgreen';
         setTimeout(() => {
           window.location.href = result.redirect_url;
         }, 1000);
       } else {
+        console.log(result.error)
         registerMsg.textContent = result.error;
         registerMsg.style.color = 'red';
       }

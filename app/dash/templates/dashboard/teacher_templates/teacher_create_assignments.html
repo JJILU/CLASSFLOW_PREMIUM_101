@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Welcome, Teacher</h2>
+  <h2>Welcome, {{ current_user.role }}</h2>
 {% endblock content %}

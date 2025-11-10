@@ -11,7 +11,7 @@ def create_app():
 
     # setup app configurations
     app.config["SQLALCHEMY_DATABASE_URI"] = Config.SQLALCHEMY_DATABASE_URI
-
+    app.config["SECRET_KEY"]=Config.SECRET_KEY
     # init extensions
     db.init_app(app)
     migrate.init_app(app,db)
