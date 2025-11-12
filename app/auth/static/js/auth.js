@@ -135,3 +135,20 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 });
+
+
+// ======== nav menu ========
+ // Select all links in the nav
+ document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-menu .link');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Optional: prevent page reload if using "#" links
+      // e.preventDefault();
+
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});

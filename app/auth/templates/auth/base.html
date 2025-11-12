@@ -22,10 +22,10 @@
     <!-- menu -->
     <div class="nav-menu" id="navMenu">
       <ul>
-        <li><a href="#" class="link active">Home</a></li>
-        <li><a href="#" class="link">Services</a></li>
-        <li><a href="#" class="link">Contact Us</a></li>
-        <li><a href="#" class="link">About</a></li>
+        <li><a href="{{ url_for('auth.login') }}" class="link active">Home</a></li>
+        <li><a href="{{ url_for('auth.services') }}" class="link">Services</a></li>
+        <li><a href="{{ url_for('auth.contact_us') }}" class="link">Contact Us</a></li>
+        <li><a href="{{ url_for('auth.about') }}" class="link">About</a></li>
       </ul>
     </div>
     <!-- buttons -->

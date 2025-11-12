@@ -14,7 +14,7 @@ from app.extensions import db
 from flask_login import login_user,logout_user
 
 
-@auth_bp.route("/register", methods=["GET", "POST"])
+@auth_bp.route("/register", methods=["GET", "POST"]) # type: ignore
 def register():
     if request.method == "GET":
         return render_template('auth/index.html')
@@ -185,7 +185,7 @@ def login():
         # check if ID is in school records
         valid_user=None
         if role == "teacher":
-           valid_user =  TeacherSchoolRecord.get_teacher_by_card_id(school_id)
+           valid_user =  TeacherSchoolRecord.get_teacher_by_card_id(school_id) # type: ignore
            if not valid_user:
             return jsonify({"error":f"No teacher with school id {school_id} found in school records"}),400
         elif role == "admin":
@@ -224,4 +224,23 @@ def logout():
 
     
         
+# ============== forgot password ==========
+@auth_bp.route("/forgot-password")
+def forgot_password():
+    return render_template('auth/forgot_password.html')
+
+# ============== contact us ==========
+@auth_bp.route("/contact-us")
+def contact_us():
+    return render_template('auth/contact_us.html')
+
+# ============== services ==========
+@auth_bp.route("/services")
+def services():
+    return render_template('auth/services.html')
+
+# ============== about ==========
+@auth_bp.route("/about")
+def about():
+    return render_template('auth/about.html')
 

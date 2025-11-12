@@ -156,6 +156,9 @@ header {
   font-weight: 500;
 }
 
+/* INPUT TAGS STYLE */
+
+
 /*
 .two-forms {
   display: flex;
@@ -251,13 +254,16 @@ header {
   text-decoration: underline;
 } 
 
+
+/* SELECT TAG STYLE */
+
 /* Style the select itself */
 select.input-field {
   appearance: none;            /* Remove default arrow */
   -webkit-appearance: none;
   -moz-appearance: none;
   background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: black;
   border: none;
   border-radius: 30px;
   height: 50px;
@@ -362,4 +368,106 @@ select.input-field {
     flex-direction: column;
     gap: 0;
   }
+}
+
+
+/* CHANGE COLOR INSIDE INPUTS */
+/* Placeholder text color */
+.input-field::placeholder {
+  color: #000; /* light gray */
+}
+
+/* Typed text color */
+.input-field {
+  color: #000; /* dark gray or black */
+}
+
+/* Icon color */
+.input-box i {
+  color: black; /* blue */
+}
+
+
+
+input[type="checkbox"] {
+  accent-color: black; 
+}
+
+
+/* ABOUT PAGE */
+.about-section {
+  background: rgba(255, 255, 255, 0.08); /* subtle transparency */
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 60px auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85); /* slightly darker white for contrast */
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 15px;
+}
+
+.about-section .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 25px;
+  width: 260px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.about-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+}
+
+.about-card h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* NAV MENU LINKS */
+.nav-menu ul li .link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+  padding-bottom: 15px;
+  margin: 0 25px;
+  display: inline-block; /* ensures border shows correctly */
+  transition: border-bottom 0.3s ease;
+}
+
+.link:hover,
+.link.active {
+  border-bottom: 2px solid #fff;
 }
