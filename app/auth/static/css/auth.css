@@ -465,7 +465,7 @@ input[type="checkbox"] {
   color: #fff;
   padding-bottom: 15px;
   margin: 0 25px;
-  display: inline-block; /* ensures border shows correctly */
+  display: inline-block; 
   transition: border-bottom 0.3s ease;
 }
 
