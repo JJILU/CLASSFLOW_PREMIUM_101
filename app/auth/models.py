@@ -177,6 +177,8 @@ class Student(db.Model,UserMixin):
 
     # one:one relationship
     student_school_record = db.relationship("StudentSchoolRecord",backref="student",uselist=False,lazy="joined")
+    # one:many relationship
+    student_attendance = db.relationship("StudentAttendance",backref="student",uselist=True,lazy="joined")
 
 
     def __repr__(self) -> str:
