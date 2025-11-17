@@ -75,7 +75,7 @@ class StudentGrade(db.Model):
     student = db.relationship("Student",backref="student_grade",uselist=False,lazy="joined")
 
 
-class ClassAssignments(db.Model):
+class ClassAssignment(db.Model):
     id = db.Column(db.Integer,primary_key=True) 
     assignment_name = db.Column(db.String(50),nullable=False)
     assignment_code = db.Column(db.String(50),nullable=False)
@@ -86,19 +86,14 @@ class ClassAssignments(db.Model):
     classroom_id = db.Column(db.Integer,db.ForeignKey('classroom.id'))
     # relationships
     classroom = db.relationship("Classroom",backref="class_assignments",uselist=False,lazy="joined")
+    classroom = db.relationship("AssignmentFileUpload",backref="class_assignment",uselist=True,lazy="joined")
 
 
 
-
-
-
-# =============== AssignmentsFileUpload ================
-
-# class AssignmentsFileUploads(db.Model):
+class AssignmentFileUpload(db.Model):
     # id = db.Column(db.String(255),primary_key=True, default=str(uuid4()))
-    # id = db.Column(db.Integer,primary_key=True)   
-    # filename = db.Column(db.String(500),nullable=False) 
-    # filepath = db.Column(db.String(500),nullable=False) 
-
-    # 1:1 ->  StudentSchoolRecord & FileUploads
-    # student_school_record_id = db.Column(db.Integer,db.ForeignKey('studentschoolrecord.id'))
+    id = db.Column(db.Integer,primary_key=True)   
+    filename = db.Column(db.String(500),nullable=False) 
+    filepath = db.Column(db.String(500),nullable=False) 
+    # fk
+    classassingment_id = db.Column(db.Integer,db.ForeignKey('classassignment.id'))
