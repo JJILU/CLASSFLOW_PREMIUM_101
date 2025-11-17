@@ -85,8 +85,8 @@ class ClassAssignment(db.Model):
     # fk
     classroom_id = db.Column(db.Integer,db.ForeignKey('classroom.id'))
     # relationships
-    classroom = db.relationship("Classroom",backref="class_assignments",uselist=False,lazy="joined")
-    classroom = db.relationship("AssignmentFileUpload",backref="class_assignment",uselist=True,lazy="joined")
+    classroom = db.relationship("Classroom",backref="class_assignments",lazy="joined")
+    assignment_file_uploads = db.relationship("AssignmentFileUpload",backref="class_assignment",uselist=True,lazy="joined")
 
 
 
