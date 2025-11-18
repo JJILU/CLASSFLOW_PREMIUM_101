@@ -4,7 +4,7 @@ from flask import render_template
 # # ------------------- Home DASHBAORD ROUTES ------------------
 @dash_bp.route("/")
 def home():
-    return render_template("dashboard/teacher_templates/teacher_create_assignments.html", role="teacher")
+    return render_template("dashboard/index.html")
 
 
 

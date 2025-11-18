@@ -238,8 +238,7 @@
                              role="button"
                              data-bs-toggle="dropdown"
                              aria-expanded="false">
-                      
-                            <img src="./assets/images/profile_photos/profile_1.jpg"
+                            <img src="{{ url_for('static', filename='assets/images/profile_photos/profile_1.jpg') }}"
                                  alt="user"
                                  class="profile-pic me-2"
                                  
@@ -402,10 +401,10 @@
         <!-- ============================================================== -->
         <div class="page-wrapper">
            
+          {% block content %}
+            
+          {% endblock content %}
           
-
-
-
 
 
 	          <footer class="footer text-center">
